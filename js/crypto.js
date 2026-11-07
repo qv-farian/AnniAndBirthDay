@@ -163,5 +163,7 @@ const AppCrypto = (function () {
     return new TextDecoder().decode(await decryptBytes(base64));
   }
 
-  return { encryptBytes, decryptBytes, encryptText, decryptText };
+  const api = { encryptBytes, decryptBytes, encryptText, decryptText };
+  if (typeof window !== 'undefined') window.AppCrypto = api;
+  return api;
 })();

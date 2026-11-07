@@ -139,5 +139,7 @@ const ImageProvider = (function () {
     await Promise.all(tasks);
   }
 
-  return { has, loadData, get, preload };
+  const api = { has, loadData, get, preload };
+  if (typeof window !== 'undefined') window.ImageProvider = api;
+  return api;
 })();

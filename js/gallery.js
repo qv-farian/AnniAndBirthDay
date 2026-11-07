@@ -18,6 +18,7 @@ const GalleryController = (function() {
    */
   async function hydrateImages() {
     const galleryImgs = document.querySelectorAll('.gallery-img[data-image-key]');
+    const provider = (typeof ImageProvider !== 'undefined' ? ImageProvider : (typeof window !== 'undefined' ? window.ImageProvider : null));
 
     const tasks = Array.from(galleryImgs).map(async (img) => {
       const key = img.dataset.imageKey;
@@ -26,11 +27,15 @@ const GalleryController = (function() {
       try {
         if (key.startsWith('./') || key.startsWith('/') || key.startsWith('http')) {
           img.src = key;
+          img.classList.add('loaded');
           return;
         }
-        if (window.ImageProvider && typeof ImageProvider.get === 'function') {
-          const objectUrl = await ImageProvider.get(key);
-          img.src = objectUrl;
+        if (provider && typeof provider.get === 'function') {
+          const objectUrl = await provider.get(key);
+          if (objectUrl) {
+            img.src = objectUrl;
+            img.classList.add('loaded');
+          }
         }
       } catch (err) {
         console.error(`[Gallery] Failed to load image "${key}":`, err);
@@ -40,10 +45,28 @@ const GalleryController = (function() {
     await Promise.all(tasks);
   }
 
-  function setLightboxImage(index) {
+  async function resolveImageSrc(keyOrUrl) {
+    if (!keyOrUrl) return '';
+    if (keyOrUrl.startsWith('blob:') || keyOrUrl.startsWith('http') || keyOrUrl.startsWith('data:')) {
+      return keyOrUrl;
+    }
+    const provider = (typeof ImageProvider !== 'undefined' ? ImageProvider : (typeof window !== 'undefined' ? window.ImageProvider : null));
+    if (provider && typeof provider.get === 'function') {
+      try {
+        const objectUrl = await provider.get(keyOrUrl);
+        if (objectUrl) return objectUrl;
+      } catch (err) {
+        console.error('[Gallery] Failed to resolve key:', keyOrUrl, err);
+      }
+    }
+    return keyOrUrl;
+  }
+
+  async function setLightboxImage(index) {
     if (!activeImages.length) return;
     activeIndex = (index + activeImages.length) % activeImages.length;
-    const currentSrc = activeImages[activeIndex];
+    const raw = activeImages[activeIndex];
+    const currentSrc = await resolveImageSrc(raw);
 
     if (lightboxImg) {
       lightboxImg.src = currentSrc;
@@ -98,7 +121,7 @@ const GalleryController = (function() {
       });
 
       // Lightbox Click Event
-      card.addEventListener('click', () => {
+      card.addEventListener('click', async () => {
         const img   = card.querySelector('.gallery-img');
         const title = card.querySelector('.gallery-card-title, .placeholder-title');
         const desc  = card.querySelector('.gallery-card-desc, .placeholder-desc');
@@ -107,7 +130,9 @@ const GalleryController = (function() {
           const rawImages = card.dataset.images;
           if (rawImages) {
             activeImages = rawImages.split(',').map(s => s.trim()).filter(Boolean);
-          } else if (img && img.src && !img.src.endsWith('/')) {
+          } else if (img && img.dataset.imageKey) {
+            activeImages = [img.dataset.imageKey];
+          } else if (img && img.src && !img.src.startsWith('data:image/svg')) {
             activeImages = [img.src];
           } else {
             activeImages = [];
@@ -116,7 +141,7 @@ const GalleryController = (function() {
           if (activeImages.length > 0) {
             if (lightboxTitle) lightboxTitle.textContent = title ? title.textContent : '';
             if (lightboxDesc)  lightboxDesc.textContent  = desc  ? desc.textContent  : '';
-            setLightboxImage(0);
+            await setLightboxImage(0);
             openLightbox();
           } else {
             // Placeholder state
@@ -192,7 +217,7 @@ const GalleryController = (function() {
     }
   }
 
-  function openPhoto(src, title, desc, images) {
+  async function openPhoto(src, title, desc, images) {
     if (!lightboxModal) {
       lightboxModal = document.getElementById('lightbox-modal');
       lightboxImg   = document.getElementById('lightbox-img');
@@ -215,7 +240,7 @@ const GalleryController = (function() {
     if (activeImages.length > 0) {
       if (lightboxTitle) lightboxTitle.textContent = title || '';
       if (lightboxDesc)  lightboxDesc.textContent  = desc  || '';
-      setLightboxImage(0);
+      await setLightboxImage(0);
     } else {
       if (lightboxImg) {
         lightboxImg.removeAttribute('src');
@@ -230,10 +255,12 @@ const GalleryController = (function() {
     openLightbox();
   }
 
-  return {
+  const api = {
     init,
     hydrateImages,
     open: openPhoto,
     close: closeLightbox
   };
+  if (typeof window !== 'undefined') window.GalleryController = api;
+  return api;
 })();

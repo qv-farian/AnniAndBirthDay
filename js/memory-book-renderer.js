@@ -23,7 +23,7 @@ const MemoryBookRenderer = (function () {
       title: 'Những Ngày Đầu Cấp 3 Ngồi Cạnh Nhau',
       date: 'Thanh Xuân Bắt Đầu',
       images: [
-        './assets/images/memories/1.png'
+        'memories-1'
       ],
       description: 'Những ngày đầu cấp 3 gặp em, hai đứa được xếp ngồi cạnh nhau. Từng ánh mắt, nụ cười ngô nghê thuở ấy chính là lúc hạt mầm tình yêu đầu tiên bắt đầu chớm nở.'
     },
@@ -32,8 +32,8 @@ const MemoryBookRenderer = (function () {
       title: 'Lần Đầu Tiên Anh Chở Em Đi Chơi',
       date: 'Đêm Trung Thu Kỷ Niệm',
       images: [
-        './assets/images/memories/2.1.png',
-        './assets/images/memories/2.2.png'
+        'memories-2-1',
+        'memories-2-2'
       ],
       description: 'Dịp Trung thu năm ấy, dù đi cùng cả nhóm bạn nhưng đây là lần đầu tiên anh lấy hết can đảm chở em sau xe. Cảm giác bối rối, ngập ngừng mà tim đập rộn ràng suốt cả dọc đường.'
     },
@@ -42,8 +42,8 @@ const MemoryBookRenderer = (function () {
       title: 'Những Đêm Call Chung Học Bài',
       date: 'Từng Giờ Khắc Êm Đềm',
       images: [
-        './assets/images/memories/3.1.png',
-        './assets/images/memories/3.2.png'
+        'memories-3-1',
+        'memories-3-2'
       ],
       description: 'Những đêm bật call cùng nhau học bài thâu đêm, cùng giải từng bài toán, động viên nhau qua màn hình điện thoại... Có em đồng hành, áp lực thi cử bỗng hóa ngọt ngào.'
     },
@@ -52,9 +52,9 @@ const MemoryBookRenderer = (function () {
       title: 'Cùng Nhau Đi Học Mỗi Ngày',
       date: 'Con Đường Thân Quen',
       images: [
-        './assets/images/memories/4.1.png',
-        './assets/images/memories/4.2.png',
-        './assets/images/memories/4.3.png'
+        'memories-4-1',
+        'memories-4-2',
+        'memories-4-3'
       ],
       description: 'Mỗi sớm mai đến lớp, con đường đi học quen thuộc trở nên rực rỡ và mong chờ hơn bao giờ hết vì ở đó luôn có hình bóng người anh thương.'
     },
@@ -63,9 +63,9 @@ const MemoryBookRenderer = (function () {
       title: 'Những Buổi Hẹn hò năm cấp 3',
       date: 'Góc Phố Kỷ Niệm',
       images: [
-        './assets/images/memories/5.1.png',
-        './assets/images/memories/5.2.png',
-        './assets/images/memories/5.3.png'
+        'memories-5-1',
+        'memories-5-2',
+        'memories-5-3'
       ],
       description: 'Những buổi chiều tan trường hẹn hò, cùng em rong ruổi khắp phố phường trên con xe 50 nhỏ bé của anh. Chiếc xe chậm rãi chở đầy ắp tiếng cười và những câu chuyện không bao giờ hết.'
     },
@@ -74,8 +74,8 @@ const MemoryBookRenderer = (function () {
       title: 'Chúng Mình Đi Chơi Ở Vincom',
       date: 'Những Ngày Vui Rộn Rã',
       images: [
-        './assets/images/memories/6.1.png',
-        './assets/images/memories/6.2.png'
+        'memories-6-1',
+        'memories-6-2'
       ],
       description: 'Những buổi chiều cùng em dạo quanh Vincom, ngắm nghía đồ xinh, ăn những món em thích và lưu giữ những khoảnh khắc lí lắc, đáng yêu nhất của hai đứa.'
     },
@@ -84,8 +84,8 @@ const MemoryBookRenderer = (function () {
       title: 'Những Lần Đầu Tiên Đi Xem Phim Cùng Nhau',
       date: 'Khoảnh Khắc Ngại Ngùng',
       images: [
-        './assets/images/memories/7.1.png',
-        './assets/images/memories/7.2.png'
+        'memories-7-1',
+        'memories-7-2'
       ],
       description: 'Lần đầu tiên hai đứa cùng ngồi cạnh nhau trong rạp phim, ánh đèn mờ ảo, ngập ngừng chẳng dám nắm tay nhưng trong lòng thì ngập tràn bối rối và hạnh phúc.'
     },
@@ -94,7 +94,7 @@ const MemoryBookRenderer = (function () {
       title: 'Lần Đầu Tiên Đón Sinh Nhật Anh Cùng Nhau',
       date: 'Sinh Nhật Đầu Tiên Bên Em',
       images: [
-        './assets/images/memories/8.png'
+        'memories-8'
       ],
       description: 'Sinh nhật đầu tiên của anh kể từ khi hai đứa yêu nhau. Cảm giác hạnh phúc và ấm áp ngập tràn khi nhận được những lời chúc ngọt ngào và sự quan tâm dịu dàng từ người con gái anh yêu.'
     },
@@ -103,7 +103,7 @@ const MemoryBookRenderer = (function () {
       title: 'Lần Thứ 2 Đón Sinh Nhật Của Em',
       date: 'Sinh Nhật Tuổi Mới Bên Nhau',
       images: [
-        './assets/images/memories/9.png'
+        'memories-9'
       ],
       description: 'Năm thứ hai được cùng em thổi nến sinh nhật. Cảm ơn em vì đã lớn lên thật dịu dàng và tiếp tục chọn anh làm người đồng hành trong tuổi mới.'
     },
@@ -112,8 +112,8 @@ const MemoryBookRenderer = (function () {
       title: 'Giải Bóng Chuyền Lớp 12',
       date: 'Nhiệt Huyết Tuổi Trẻ',
       images: [
-        './assets/images/memories/10.1.png',
-        './assets/images/memories/10.2.png'
+        'memories-10-1',
+        'memories-10-2'
       ],
       description: 'Những trận bóng chuyền nảy lửa năm lớp 12, có tiếng reo hò của bạn bè và ánh mắt cổ vũ dịu dàng của em bên lề sân — nguồn động lực lớn nhất của anh.'
     },
@@ -122,9 +122,9 @@ const MemoryBookRenderer = (function () {
       title: 'Chúng Mình Những Ngày Cuối Cấp 3',
       date: 'Tạm Biệt Mái Trường',
       images: [
-        './assets/images/memories/11.1.png',
-        './assets/images/memories/11.2.png',
-        './assets/images/memories/11.3.png'
+        'memories-11-1',
+        'memories-11-2',
+        'memories-11-3'
       ],
       description: 'Những ngày cuối cấp 3 đầy lưu luyến, tiếng ve gọi hè, trang lưu bút và những cái ôm tạm biệt. Tình yêu học trò khép lại để mở ra một trang mới trưởng thành hơn bên em.'
     },
@@ -133,7 +133,7 @@ const MemoryBookRenderer = (function () {
       title: 'Lần Đầu Tiên Đi Du Lịch Cùng Nhau',
       date: 'Chuyến Đi Đầu Tiên',
       images: [
-        './assets/images/memories/12.png'
+        'memories-12'
       ],
       description: 'Chuyến du lịch xa đầu tiên chỉ có hai đứa mình, cùng khám phá vùng đất mới, cùng dậy sớm đón bình minh và cùng tạo nên những kỷ niệm vô giá.'
     },
@@ -142,9 +142,9 @@ const MemoryBookRenderer = (function () {
       title: 'Lần Thứ 3 Đón Sinh Nhật Em Cùng Nhau',
       date: 'Thêm Một Tuổi Mới Yêu Thương',
       images: [
-        './assets/images/memories/13.1.png',
-        './assets/images/memories/13.2.png',
-        './assets/images/memories/13.3.png'
+        'memories-13-1',
+        'memories-13-2',
+        'memories-13-3'
       ],
       description: 'Sinh nhật lần thứ 3 bên em, hai đứa đã cùng nhau trải qua bao đổi thay khi bước vào đại học. Nhưng tình cảm dành cho em thì chỉ ngày một đong đầy hơn.'
     },
@@ -153,9 +153,9 @@ const MemoryBookRenderer = (function () {
       title: 'Kỷ Niệm 1000 Ngày Yêu — Dịp Tết 2024',
       date: 'Tết 2024 · 1000 Ngày Yêu',
       images: [
-        './assets/images/memories/14.1.png',
-        './assets/images/memories/14.2.png',
-        './assets/images/memories/14.3.png'
+        'memories-14-1',
+        'memories-14-2',
+        'memories-14-3'
       ],
       description: 'Cột mốc 1000 ngày yêu nhau thật ý nghĩa khi rơi vào đúng dịp Tết Nguyên Đán 2024. Giữa không khí xuân rộn ràng, anh có em là món quà đầu năm trọn vẹn nhất.'
     },
@@ -164,7 +164,7 @@ const MemoryBookRenderer = (function () {
       title: 'Lần Thứ 2 Đón Sinh Nhật Anh Cùng Nhau',
       date: 'Tuổi Mới Thêm Gắn Kết',
       images: [
-        './assets/images/memories/15.png'
+        'memories-15'
       ],
       description: 'Năm thứ hai đón sinh nhật cùng em. Tình cảm của hai đứa ngày càng gắn kết, có em ở bên cạnh biến ngày sinh nhật của anh thành ngày ngập tràn niềm vui và bình yên.'
     },
@@ -173,8 +173,8 @@ const MemoryBookRenderer = (function () {
       title: 'Cùng Nhau Đi Hội An',
       date: 'Phố Cổ Lung Linh Ánh Đèn',
       images: [
-        './assets/images/memories/16.1.png',
-        './assets/images/memories/16.2.png'
+        'memories-16-1',
+        'memories-16-2'
       ],
       description: 'Cùng em dạo bước dưới những con hẻm vàng đặc trưng của phố cổ, ngắm lồng đèn rực rỡ bên dòng sông Hoài thơ mộng và thưởng thức những món ăn thân thương.'
     },
@@ -183,8 +183,8 @@ const MemoryBookRenderer = (function () {
       title: 'Đi Du Lịch Huế Cùng Nhau',
       date: 'Cố Đô Mộng Mơ',
       images: [
-        './assets/images/memories/17.1.png',
-        './assets/images/memories/17.2.png'
+        'memories-17-1',
+        'memories-17-2'
       ],
       description: 'Hành trình về với mảnh đất cố đô trầm mặc, dạo quanh Đại Nội, ngắm sông Hương êm đềm và cùng em tận hưởng sự bình yên rất đỗi ngọt ngào.'
     },
@@ -193,7 +193,7 @@ const MemoryBookRenderer = (function () {
       title: 'Về Quê Đi Biển Picnic Với Thầy Trung',
       date: 'Chuyến Đi Đầy Ắp Tiếng Cười',
       images: [
-        './assets/images/memories/18.png'
+        'memories-18'
       ],
       description: 'Chuyến về quê picnic bên bờ biển lộng gió cùng thầy Trung và mọi người. Từng làn gió biển mát rượi, những bữa ăn ấm cúng và bao kỷ niệm rạng rỡ tiếng cười.'
     },
@@ -202,9 +202,9 @@ const MemoryBookRenderer = (function () {
       title: 'Mình Đi Chơi Khắp Đà Nẵng',
       date: 'Thành Phố Tình Yêu',
       images: [
-        './assets/images/memories/19.1.png',
-        './assets/images/memories/19.2.png',
-        './assets/images/memories/19.3.png'
+        'memories-19-1',
+        'memories-19-2',
+        'memories-19-3'
       ],
       description: 'Rong ruổi khắp các cung đường Đà Nẵng, qua những cây cầu rực rỡ về đêm, lên bán đảo Sơn Trà ngắm biển trời mênh mông cùng bà chã hơm iuu.'
     },
@@ -213,8 +213,8 @@ const MemoryBookRenderer = (function () {
       title: 'Về Nhà Bé Chơi',
       date: 'Góc Nhỏ Thân Thương',
       images: [
-        './assets/images/memories/20.1.png',
-        './assets/images/memories/20.2.png'
+        'memories-20-1',
+        'memories-20-2'
       ],
       description: 'Những lần về nhà bé chơi, được ở bên em trong không gian thân thuộc nhất, giản dị, ấm áp và luôn tràn ngập cảm giác bình yên của một gia đình.'
     },
@@ -223,7 +223,7 @@ const MemoryBookRenderer = (function () {
       title: 'Tết 2025 Với Bộ Ảnh Để Đời',
       date: 'Tết 2025 Rực Rỡ',
       images: [
-        './assets/images/memories/21.png'
+        'memories-21'
       ],
       description: 'Mùa Tết 2025 rạng rỡ với bộ ảnh kỷ niệm cực phẩm của hai đứa. Em mặc đồ Tết xinh đẹp như một nàng thơ, lưu lại những khung hình đẹp nhất thanh xuân.'
     },
@@ -232,7 +232,7 @@ const MemoryBookRenderer = (function () {
       title: 'Lần Thứ 3 Đón Sinh Nhật Anh Cùng Nhau',
       date: 'Hạnh Phúc Giản Đơn',
       images: [
-        './assets/images/memories/22.png'
+        'memories-22'
       ],
       description: 'Mùa sinh nhật thứ 3 bên em, hai đứa đã cùng nhau đi qua bao kỷ niệm đẹp. Cảm ơn em vì đã luôn chu đáo, dành cho anh sự dịu dàng và thương yêu trọn vẹn nhất.'
     },
@@ -241,7 +241,7 @@ const MemoryBookRenderer = (function () {
       title: 'Kỳ Nghỉ Lễ 30/4 - 1/5 Bên Nhau',
       date: '30 Tháng 4 & 01 Tháng 5',
       images: [
-        './assets/images/memories/23.png'
+        'memories-23'
       ],
       description: 'Những ngày nghỉ lễ thảnh thơi dành trọn thời gian cho nhau, tạm gác lại những bộn bề học tập và công việc để cùng nhau tận hưởng trọn vẹn từng khoảnh khắc.'
     },
@@ -250,8 +250,8 @@ const MemoryBookRenderer = (function () {
       title: 'Tiếp Tục Đi Hội An Như Cơm Bữa',
       date: 'Góc Phố Thân Quen',
       images: [
-        './assets/images/memories/24.1.png',
-        './assets/images/memories/24.2.png'
+        'memories-24-1',
+        'memories-24-2'
       ],
       description: 'Hội An đi hoài không biết chán, đi nhiều đến mức quen từng góc quán, từng con ngõ nhỏ. Cứ rảnh rỗi là hai đứa lại đèo nhau về phố cổ hít hà không khí bình yên.'
     },
@@ -260,8 +260,8 @@ const MemoryBookRenderer = (function () {
       title: 'Lần Thứ 4 Đón Sinh Nhật Bé Cùng Nhau',
       date: 'Sinh Nhật Lần Thứ 4',
       images: [
-        './assets/images/memories/25.1.png',
-        './assets/images/memories/25.2.png'
+        'memories-25-1',
+        'memories-25-2'
       ],
       description: 'Bốn mùa sinh nhật trôi qua, anh vẫn may mắn là người đầu tiên gửi lời chúc mừng đến em. Chúc em tuổi mới luôn là cô gái hạnh phúc nhất trên đời!'
     },
@@ -270,7 +270,7 @@ const MemoryBookRenderer = (function () {
       title: 'Tết 2026 Cùng Nhau',
       date: 'Mùa Xuân Gắn Kết',
       images: [
-        './assets/images/memories/26.png'
+        'memories-26'
       ],
       description: 'Lại thêm một mùa Tết trọn vẹn nữa hai đứa đồng hành bên nhau. Tình yêu ngày càng chín muồi, sâu đậm và gắn kết hơn qua từng năm tháng.'
     },
@@ -279,8 +279,8 @@ const MemoryBookRenderer = (function () {
       title: 'Cùng Nhau Đón Sinh Nhật Của Anh Lần Thứ 4',
       date: 'Sinh Nhật Lần Thứ 4 Bên Em',
       images: [
-        './assets/images/memories/27.1.png',
-        './assets/images/memories/27.2.png'
+        'memories-27-1',
+        'memories-27-2'
       ],
       description: 'Mỗi mùa sinh nhật có em bên cạnh, anh nhận ra món quà lớn nhất và quý giá nhất cuộc đời mình vẫn luôn là nụ cười hạnh phúc của em.'
     },
@@ -289,8 +289,8 @@ const MemoryBookRenderer = (function () {
       title: 'Đi Lý Sơn Cùng Nhau',
       date: 'Biển Xanh & Nắng Vàng Lý Sơn',
       images: [
-        './assets/images/memories/28.1.png',
-        './assets/images/memories/28.2.png'
+        'memories-28-1',
+        'memories-28-2'
       ],
       description: 'Hành trình đến hòn đảo Lý Sơn xinh đẹp, đắm mình trong làn nước biển trong vắt như ngọc, ngắm hoàng hôn trên Cổng Tò Vò và lưu giữ những thước phim tuyệt mỹ.'
     },
@@ -299,9 +299,9 @@ const MemoryBookRenderer = (function () {
       title: 'Kỷ Niệm Cột Mốc 5 Năm Bên Nhau',
       date: 'Hành Trình Nửa Thập Kỷ',
       images: [
-        './assets/images/memories/29.1.png',
-        './assets/images/memories/29.2.png',
-        './assets/images/memories/29.3.png'
+        'memories-29-1',
+        'memories-29-2',
+        'memories-29-3'
       ],
       description: 'Nửa thập kỷ yêu thương — 5 năm với biết bao thăng trầm, thử thách nhưng hai đứa vẫn luôn nắm chặt tay nhau để cùng trưởng thành và yêu nhau nhiều hơn.'
     },
@@ -310,8 +310,8 @@ const MemoryBookRenderer = (function () {
       title: 'Đi Suối Chụp Choẹt Đồ Xinh',
       date: 'Hòa Mình Cùng Thiên Nhiên',
       images: [
-        './assets/images/memories/30.1.png',
-        './assets/images/memories/30.2.png'
+        'memories-30-1',
+        'memories-30-2'
       ],
       description: 'Chuyến đi suối hòa mình vào thiên nhiên trong lành, cùng em lội nước mát rượi, cười đùa rộn rã và có cả một bộ sưu tập ảnh \'chụp choẹt\' siêu đáng yêu.'
     },
@@ -320,9 +320,9 @@ const MemoryBookRenderer = (function () {
       title: 'Mới Đây Chụp Photobooth Nè',
       date: 'Khoảnh Khắc Gần Nhất',
       images: [
-        './assets/images/memories/31.1.png',
-        './assets/images/memories/31.2.png',
-        './assets/images/memories/31.3.png'
+        'memories-31-1',
+        'memories-31-2',
+        'memories-31-3'
       ],
       description: 'Những khung hình photobooth ngộ nghĩnh, hài hước và đong đầy tình cảm vừa mới chụp gần đây. Tình yêu của chúng mình luôn tươi mới như ngày đầu tiên!'
     },
@@ -389,8 +389,13 @@ const MemoryBookRenderer = (function () {
     ].forEach(_hydratePageImage);
 
     const keys = getImageKeys();
-    if (keys.length > 0 && window.ImageProvider && typeof ImageProvider.preload === 'function') {
-      ImageProvider.preload(keys);
+    const provider = (typeof ImageProvider !== 'undefined' ? ImageProvider : (typeof window !== 'undefined' ? window.ImageProvider : null));
+    if (keys.length > 0 && provider && typeof provider.preload === 'function') {
+      provider.preload(keys).then(() => {
+        for (let i = 0; i < total; i++) {
+          _hydratePageImage(i);
+        }
+      }).catch(() => {});
     }
   }
 
@@ -429,12 +434,14 @@ const MemoryBookRenderer = (function () {
       }
 
       // Case 2: Encrypted key via ImageProvider
-      if (window.ImageProvider && typeof ImageProvider.get === 'function') {
+      const provider = (typeof ImageProvider !== 'undefined' ? ImageProvider : (typeof window !== 'undefined' ? window.ImageProvider : null));
+      if (provider && typeof provider.get === 'function') {
         try {
-          const objectUrl = await ImageProvider.get(key);
+          const objectUrl = await provider.get(key);
           if (objectUrl) {
             img.src = objectUrl;
             img.style.opacity = '1';
+            img.classList.add('loaded');
           }
         } catch (err) {
           console.error(`[Renderer] Failed to load image "${key}":`, err);
@@ -525,8 +532,9 @@ const MemoryBookRenderer = (function () {
         const title = frame.getAttribute('data-photo-title') || 'Khoảnh Khắc Kỷ Niệm';
         const desc = frame.getAttribute('data-photo-desc') || '';
 
-        if (window.GalleryController && typeof GalleryController.open === 'function') {
-          GalleryController.open(src, title, desc);
+        const gallery = (typeof GalleryController !== 'undefined' ? GalleryController : (typeof window !== 'undefined' ? window.GalleryController : null));
+        if (gallery && typeof gallery.open === 'function') {
+          gallery.open(src, title, desc);
         }
         return;
       }
@@ -536,8 +544,9 @@ const MemoryBookRenderer = (function () {
       if (placeholder) {
         const title = placeholder.getAttribute('data-placeholder-title') || 'Khung Ký Ức';
         const desc = placeholder.getAttribute('data-placeholder-desc') || '';
-        if (window.GalleryController && typeof GalleryController.open === 'function') {
-          GalleryController.open('', title, desc);
+        const gallery = (typeof GalleryController !== 'undefined' ? GalleryController : (typeof window !== 'undefined' ? window.GalleryController : null));
+        if (gallery && typeof gallery.open === 'function') {
+          gallery.open('', title, desc);
         }
       }
     });
@@ -758,7 +767,7 @@ const MemoryBookRenderer = (function () {
     }
   }
 
-  return {
+  const api = {
     renderAlbum,
     updatePageDisplay,
     updatePageIndicator,
@@ -766,4 +775,6 @@ const MemoryBookRenderer = (function () {
     getImageKeys,
     getPagesCount: () => PAGES_DATA.length
   };
+  if (typeof window !== 'undefined') window.MemoryBookRenderer = api;
+  return api;
 })();
