@@ -27,7 +27,7 @@ const SakuraEngine = (function() {
     canvas.style.width = '100vw';
     canvas.style.height = '100vh';
     canvas.style.pointerEvents = 'none';
-    canvas.style.zIndex = '-7';
+    canvas.style.zIndex = '4';
     document.getElementById('bg-canvas-container').appendChild(canvas);
 
     ctx = canvas.getContext('2d');

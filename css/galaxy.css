@@ -23,8 +23,8 @@
 
 .galaxy-title {
   font-family: var(--font-title);
-  font-size: 3.8rem;
-  letter-spacing: 4px;
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  letter-spacing: clamp(2px, 0.4vw, 4px);
   font-weight: 700;
   text-transform: uppercase;
   background: linear-gradient(135deg, #ffffff 20%, var(--accent-pink) 60%, var(--accent-cyan) 100%);
@@ -35,7 +35,7 @@
 
 .galaxy-subtitle {
   font-family: var(--font-romantic);
-  font-size: 2.2rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.9rem);
   color: var(--accent-warm-white);
   margin-top: 8px;
   opacity: 0.9;
