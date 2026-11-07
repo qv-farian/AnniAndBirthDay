@@ -27,15 +27,15 @@ try {
 }
 
 const [,, urlArg, photoArg, outArg] = process.argv;
-const URL = urlArg || 'https://ngimnee.github.io/milove/';
+const URL = urlArg || 'https://qv-farian.github.io/AnniAndBirthDay/';
 const PHOTO = photoArg || './assets/images/anh-va-em-chibi.png';
-const OUT = outArg || './assets/qr-milove.png';
+const OUT = outArg || './assets/qr-card.png';
 
 // Texts on the card
 const TITLE = 'Bức Tâm Thư';
 const SUBTITLE = 'Một lá thư dành riêng cho em';
 const CAPTION = 'Quét mã để mở thư';
-const URL_LABEL = 'ngimnee.github.io/milove';
+const URL_LABEL = 'qv-farian.github.io/AnniAndBirthDay';
 
 // Face crop taken from the source photo (a square around the face), then resized into the QR centre
 const PHOTO_CROP = { left: 520, top: 40, width: 520, height: 520 };
@@ -141,6 +141,8 @@ const FONT_TEXT = "'Segoe UI Variable Text', 'Segoe UI', Arial, sans-serif";
   <text x="${W / 2}" y="${PANEL_Y + PANEL + 136}" text-anchor="middle" font-family="${FONT_TEXT}" font-weight="400" font-size="27" letter-spacing="0.8" fill="#b9a6dd">${URL_LABEL}</text>
 </svg>`;
 
-  await sharp(Buffer.from(svg)).png().toFile(OUT);
-  console.log(`Created ${OUT} (${W}x${H}) for ${URL}`);
+  const pngBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
+  require('fs').writeFileSync(OUT, pngBuffer);
+  require('fs').writeFileSync('./assets/qr-milove.png', pngBuffer);
+  console.log(`Created ${OUT} and ./assets/qr-milove.png (${W}x${H}) for ${URL}`);
 })();

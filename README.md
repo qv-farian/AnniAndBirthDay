@@ -1,4 +1,4 @@
-# 💖 MiLove
+# 💖 Anni & Birthday
 
 ---
 
@@ -120,7 +120,7 @@ Website **không cần NodeJS**, **không cần npm**, **không cần build**.
 
 1. Tải source code hoặc clone repository về máy:
    ```bash
-   git clone https://github.com/ngimnee/milove.git
+   git clone https://github.com/qv-farian/AnniAndBirthDay.git
    ```
 2. Mở trực tiếp file `index.html` bằng bất kỳ trình duyệt nào (Chrome, Edge, Safari, Firefox) hoặc dùng extension **Live Server** trong VS Code.
 
@@ -149,23 +149,23 @@ QR là mã **tĩnh**: link được mã hóa thẳng vào hình ảnh nên **kh�
 Link chia sẻ luôn là link công khai cố định, không phụ thuộc link người xem đang mở (kể cả khi đang thử `?specialEvent=...`). Link được khai báo ở hằng `SHARE_URL` đầu file `js/share.js`:
 
 ```javascript
-const SHARE_URL = 'https://ngimnee.github.io/milove/';
+const SHARE_URL = 'https://qv-farian.github.io/AnniAndBirthDay/';
 ```
 
-> ⚠️ Nếu đổi tên repo hoặc username GitHub, link `ngimnee.github.io/milove` đổi theo và **mọi QR cũ sẽ hỏng**. Khi đó làm lần lượt: sửa `SHARE_URL` trong `js/share.js` → tạo lại QR (các mục bên dưới) → sửa chữ địa chỉ trong thẻ (`URL_LABEL` trong `tools/make-qr-card.js`) → gửi lại QR mới cho mọi người. Muốn bền hơn, hãy gắn tên miền riêng cho GitHub Pages rồi tạo QR từ tên miền đó.
+> ⚠️ Nếu đổi tên repo hoặc username GitHub, link `qv-farian.github.io/AnniAndBirthDay` đổi theo và **mọi QR cũ sẽ hỏng**. Khi đó làm lần lượt: sửa `SHARE_URL` trong `js/share.js` → tạo lại QR (các mục bên dưới) → sửa chữ địa chỉ trong thẻ (`URL_LABEL` trong `tools/make-qr-card.js`) → gửi lại QR mới cho mọi người. Muốn bền hơn, hãy gắn tên miền riêng cho GitHub Pages rồi tạo QR từ tên miền đó.
 
 ### Cách 1: Tạo QR trơn bằng một lệnh
 
 Cần cài sẵn [Node.js](https://nodejs.org). Chạy trong thư mục dự án:
 
 ```bash
-npx qrcode -t svg -o assets/qr-milove.svg -e H --margin 2 -d 2a1740 -l ffffff "https://ngimnee.github.io/milove/"
+npx qrcode -t svg -o assets/qr-milove.svg -e H --margin 2 -d 2a1740 -l ffffff "https://qv-farian.github.io/AnniAndBirthDay/"
 ```
 
 Muốn xuất ảnh PNG thì đổi `-t png`, đổi tên file đầu ra và thêm `-w 1024` (rộng 1024px):
 
 ```bash
-npx qrcode -t png -o assets/qr-milove.png -w 1024 -e H --margin 2 -d 2a1740 -l ffffff "https://ngimnee.github.io/milove/"
+npx qrcode -t png -o assets/qr-milove.png -w 1024 -e H --margin 2 -d 2a1740 -l ffffff "https://qv-farian.github.io/AnniAndBirthDay/"
 ```
 
 | Tham số | Ý nghĩa |
@@ -206,7 +206,7 @@ export NODE_PATH=/tmp/qrtool/node_modules
 node tools/make-qr-card.js
 ```
 
-Chạy không tham số sẽ tạo lại đúng `assets/qr-milove.png` cho `https://ngimnee.github.io/milove/`. Muốn đổi link, ảnh ở giữa hoặc nơi lưu, truyền tham số theo thứ tự:
+Chạy không tham số sẽ tạo lại đúng `assets/qr-milove.png` cho `https://qv-farian.github.io/AnniAndBirthDay/`. Muốn đổi link, ảnh ở giữa hoặc nơi lưu, truyền tham số theo thứ tự:
 
 ```bash
 node tools/make-qr-card.js "<link>" "<ảnh giữa>" "<file xuất>"
@@ -336,13 +336,13 @@ const BIRTHDAY_ANH = { month: 1, day: 2 };
 
 > **Sinh nhật & kỷ niệm đã có nhạc riêng**: `./sounds/happy-birthday.mp3` và `./sounds/vay-cuoi.mp3` (đặt cạnh nhạc nền `don-gian-anh-yeu-em.mp3`). Nếu đổi tên/vị trí file thì nhớ sửa lại đường dẫn `music.src` tương ứng trong `js/special-events-data.js`.
 
-> Luôn dùng đường dẫn tương đối bắt đầu bằng `./` để chạy đúng cả local lẫn `https://ngimnee.github.io/milove/`.
+> Luôn dùng đường dẫn tương đối bắt đầu bằng `./` để chạy đúng cả local lẫn `https://qv-farian.github.io/AnniAndBirthDay/`.
 
 **Test không cần chờ đúng ngày** (chỉ có tác dụng khi thêm vào URL, không lưu lại):
 - `?specialEvent=valentine` — mở thẳng một sự kiện theo `id` (kể cả khi chưa điền ngày).
 - `?specialDate=2027-05-08` (hoặc `05-08`) — giả lập hôm nay là ngày đó, chạy đúng logic nhận diện + priority.
 
-Ví dụ: `index.html?specialEvent=birthday-em`, hoặc sau khi deploy: `https://ngimnee.github.io/milove/?specialDate=02-14`.
+Ví dụ: `index.html?specialEvent=birthday-em`, hoặc sau khi deploy: `https://qv-farian.github.io/AnniAndBirthDay/?specialDate=02-14`.
 
 **Deploy**: chỉ cần commit & push như bình thường, GitHub Pages phục vụ file tĩnh, không có bước build.
 

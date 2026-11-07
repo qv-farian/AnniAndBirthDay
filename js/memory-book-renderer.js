@@ -13,7 +13,7 @@ const MemoryBookRenderer = (function () {
   const PAGES_DATA = [
     {
       type: 'cover-front',
-      title: 'MiLove',
+      title: 'Anni & Birthday',
       subtitle: 'Kỷ Niệm 2000 Ngày & Sinh Nhật Bã chã iuu',
       date: '17.05.2021 — 2000 Ngày',
       description: 'Chạm nút tiếp theo để mở trang đầu tiên'
@@ -331,7 +331,7 @@ const MemoryBookRenderer = (function () {
       title: 'Trái Tim Anh Luôn Có Em ♥',
       subtitle: 'Chúc Mừng Sinh Nhật Bà Chã Iuu',
       date: 'Bìa Sau Album',
-      description: 'MiLove &bull; 31 Cột Mốc Kỷ Niệm Yêu Thương Của Chúng Mình'
+      description: 'Anni & Birthday &bull; 31 Cột Mốc Kỷ Niệm Yêu Thương Của Chúng Mình'
     }
   ];
 
@@ -476,7 +476,7 @@ const MemoryBookRenderer = (function () {
               <div class="cover-gold-border">
                 <div class="cover-content">
                   <div class="cover-emblem"><i class="fas fa-heart"></i></div>
-                  <h2 class="cover-title">MiLove</h2>
+                  <h2 class="cover-title">Anni &amp; Birthday</h2>
                   <p class="cover-subtitle">Album Kỷ Niệm Tình Yêu</p>
                   <div class="cover-badge">31 Cột Mốc Thanh Xuân</div>
                 </div>
@@ -566,7 +566,7 @@ const MemoryBookRenderer = (function () {
               <div class="cover-gold-border">
                 <div class="cover-content">
                   <div class="cover-emblem"><i class="fas fa-heart"></i></div>
-                  <h2 class="cover-title">MiLove</h2>
+                  <h2 class="cover-title">Anni &amp; Birthday</h2>
                   <p class="cover-subtitle">${page.subtitle}</p>
                   <div class="cover-badge">${page.date}</div>
                   <p class="cover-hint-text"><i class="fas fa-hand-pointer"></i> Bấm nút tiếp tục bên dưới để lật trang</p>

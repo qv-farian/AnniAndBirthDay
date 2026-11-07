@@ -11,7 +11,7 @@ const ShareController = (function() {
     if (typeof window !== 'undefined' && window.location && window.location.protocol.startsWith('http')) {
       return window.location.origin + window.location.pathname;
     }
-    return 'https://ngimnee.github.io/milove/';
+    return 'https://qv-farian.github.io/AnniAndBirthDay/';
   }
 
   const SHARE_TITLE = 'Trâm iuu — Sinh Nhật & 2000 Ngày Yêu Nhau';
