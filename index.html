@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Trâm iuu — Sinh Nhật & 2000 Ngày Yêu Nhau</title>
+  <meta name="title" content="Trâm iuu — Sinh Nhật & 2000 Ngày Yêu Nhau">
+  <meta name="description" content="Món quà đặc biệt dành cho sinh nhật Trâm và hành trình 2000 ngày chúng mình bên nhau.">
+
+  <!-- Open Graph / Facebook / Zalo / Messenger -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ngimnee.github.io/milove/">
+  <meta property="og:title" content="Trâm iuu — Sinh Nhật & 2000 Ngày Yêu Nhau">
+  <meta property="og:description" content="Món quà đặc biệt dành cho sinh nhật bà chã iuu và hành trình 2000 ngày chúng mình bên nhau.">
+  <meta property="og:site_name" content="MiLove">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Schema.org for Google / iMessage -->
+  <meta itemprop="name" content="Trâm iuu — Sinh Nhật & 2000 Ngày Yêu Nhau">
+  <meta itemprop="description" content="Món quà đặc biệt dành cho sinh nhật bà chã iuu và hành trình 2000 ngày chúng mình bên nhau.">
+
+  <!-- Open Graph Image -->
+  <meta property="og:image" content="./assets/images/anh-va-em-chibi.png">
+  <meta itemprop="image" content="./assets/images/anh-va-em-chibi.png">
+
+  <!-- Favicon / Title Icon -->
+  <link rel="icon" type="image/png" href="./assets/images/anh-va-em-chibi.png">
+  <link rel="shortcut icon" type="image/png" href="./assets/images/anh-va-em-chibi.png">
+  <link rel="apple-touch-icon" href="./assets/images/anh-va-em-chibi.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Cinzel:wght@500;700&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom Stylesheets (Strict Relative Paths) -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/loading.css">
+  <link rel="stylesheet" href="./css/intro.css">
+  <link rel="stylesheet" href="./css/galaxy.css">
+  <link rel="stylesheet" href="./css/letter.css">
+  <link rel="stylesheet" href="./css/gallery.css">
+  <link rel="stylesheet" href="./css/timeline.css">
+  <link rel="stylesheet" href="./css/effects.css">
+  <link rel="stylesheet" href="./css/memory-book.css">
+  <link rel="stylesheet" href="./css/special-events.css">
+  <link rel="stylesheet" href="./css/share.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+
+  <!-- External Libraries CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Custom Glowing Cursor & Trail -->
+  <div id="custom-cursor"></div>
+  <div id="custom-cursor-follower"></div>
+
+  <!-- Background Canvases & Aurora Effect Layer -->
+  <div id="bg-canvas-container">
+    <canvas id="galaxy-canvas"></canvas>
+    <canvas id="effects-canvas"></canvas>
+    <div class="aurora-overlay"></div>
+  </div>
+
+  <!-- Fireworks Canvas (fixed overlay, above everything including letter modal) -->
+  <canvas id="fireworks-canvas"></canvas>
+
+  <!-- Audio Player Floating Widget -->
+  <div id="audio-widget">
+    <button id="audio-widget-btn" class="audio-btn" aria-label="Audio Control">
+      <i id="audio-icon" class="fas fa-music"></i>
+    </button>
+    <div class="sound-waves">
+      <span class="sound-bar"></span>
+      <span class="sound-bar"></span>
+      <span class="sound-bar"></span>
+      <span class="sound-bar"></span>
+    </div>
+    <!-- <span class="music-title-track">Nhạc Nền Lãng Mạn</span> -->
+  </div>
+
+  <!-- LOADING SCREEN -->
+  <section id="loading-screen">
+    <div class="loader-container">
+      <div class="orbit-ring">
+        <i class="fas fa-heart loader-heart"></i>
+      </div>
+      <div id="loading-percent" class="loading-percent">0%</div>
+      <div class="loading-subtext">Đang chuẩn bị điều đặc biệt nhất dành cho Bà Chã Iuu...</div>
+      <div class="progress-bar-wrapper">
+        <div id="progress-bar-fill" class="progress-bar-fill"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CINEMATIC INTRO OVERLAY -->
+  <section id="intro-section">
+    <div class="intro-content">
+      <div class="intro-text-line">Có một ngày vô cùng đặc biệt trong đời...</div>
+      <div class="intro-text-line">Sinh nhật của bà chã iuu & 2000 ngày chúng mình yêu nhau.</div>
+      <div class="intro-divider"></div>
+      <div class="intro-text-line">
+        Hôm nay...
+        <span class="intro-text-highlight">mời em cùng anh bước vào hành trình này nhé.</span>
+      </div>
+      <button id="intro-enter-btn" class="btn-romantic intro-enter-btn">
+        Khám phá món quà của EmBe <i class="fas fa-heart-pulse"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- MAIN SCROLLABLE CONTENT WRAPPER -->
+  <main id="main-content">
+
+    <!-- GALAXY & 3D ENVELOPE SECTION -->
+    <section id="galaxy-section" class="galaxy-section">
+      <div class="galaxy-header">
+        <p class="section-tag">SINH NHẬT TRÂM IU · KỶ NIỆM 2000 NGÀY YÊU</p>
+        <h1 class="galaxy-title">Gửi người con gái anh yêu nhất</h1>
+        <p class="galaxy-subtitle">Cảm ơn EmBe vì đã cùng anh đi qua 2000 ngày bình yên, rực rỡ và tràn ngập thương yêu.</p>
+      </div>
+
+      <!-- 3D Interactive Envelope -->
+      <div id="envelope-container" class="envelope-container">
+        <div id="envelope" class="envelope">
+          <div class="envelope-flap"></div>
+          <div class="envelope-pocket">
+            <div class="pocket-left"></div>
+            <div class="pocket-right"></div>
+            <div class="pocket-bottom"></div>
+          </div>
+          <div class="wax-seal">
+            <i class="fas fa-heart"></i>
+          </div>
+        </div>
+      </div>
+      <div class="envelope-hint">
+        <i class="fas fa-hand-pointer"></i> Chạm nhẹ vào phong thư để đọc bức tâm thư anh viết cho em
+      </div>
+    </section>
+
+    <!-- EXPANDED FULL-SCREEN LETTER MODAL -->
+    <div id="letter-modal">
+      <div class="letter-paper-wrapper">
+        <button id="letter-close-btn" class="letter-close-btn" aria-label="Close Letter">
+          <i class="fas fa-times"></i>
+        </button>
+        <h2 class="letter-header-title">Gửi bà chã iuuu...</h2>
+        <div id="letter-body" class="letter-body"><span id="letter-typewriter-text"></span><span id="typewriter-cursor" class="typewriter-cursor"></span></div>
+        <div id="letter-signature" class="letter-footer-signature"></div>
+
+        <!-- Typewriter Control Bar -->
+        <div class="typewriter-controls">
+          <button id="btn-type-pause" class="control-btn"><i class="fas fa-pause"></i> Tạm dừng</button>
+          <button id="btn-type-replay" class="control-btn"><i class="fas fa-redo"></i> Đọc lại</button>
+          <button id="btn-type-skip" class="control-btn"><i class="fas fa-forward"></i> Đọc hết</button>
+        </div>
+      </div>
+    </div>
+
+        <!-- PHOTO MEMORY GALLERY -->
+    <section id="gallery-section" class="gallery-section">
+      <div class="section-header">
+        <span class="section-tag">ALBUM KÝ ỨC CỦA CHÚNG MÌNH</span>
+        <h2 class="section-title">Dấu Ấn Thanh Xuân & Kỷ Niệm Yêu Thương</h2>
+        <p class="section-desc">Gom góp từng nụ cười, từng chuyến đi và từng khoảnh khắc ngọt ngào của hai đứa mình</p>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Kỷ niệm 01 -->
+        <div class="gallery-card" data-slot="1" data-images="./assets/images/memories/1.png">
+          <div class="gallery-img-wrapper">
+            <img class="gallery-img" src="./assets/images/memories/1.png" alt="Những Ngày Đầu Cấp 3 Ngồi Cạnh Nhau" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#01 &bull; Thanh Xuân Bắt Đầu</div>
+              <h3 class="gallery-card-title">Những Ngày Đầu Cấp 3 Ngồi Cạnh Nhau</h3>
+              <p class="gallery-card-desc">Những ngày đầu cấp 3 gặp em, hai đứa được xếp ngồi cạnh nhau. Từng ánh mắt, nụ cười ngô nghê thuở ấy chính là lúc hạt mầm tình yêu đầu tiên bắt đầu chớm nở.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 02 -->
+        <div class="gallery-card" data-slot="2" data-images="./assets/images/memories/2.1.png,./assets/images/memories/2.2.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 2 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/2.1.png" alt="Lần Đầu Tiên Anh Chở Em Đi Chơi" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#02 &bull; Đêm Trung Thu Kỷ Niệm</div>
+              <h3 class="gallery-card-title">Lần Đầu Tiên Anh Chở Em Đi Chơi</h3>
+              <p class="gallery-card-desc">Dịp Trung thu năm ấy, dù đi cùng cả nhóm bạn nhưng đây là lần đầu tiên anh lấy hết can đảm chở em sau xe. Cảm giác bối rối, ngập ngừng mà tim đập rộn ràng suốt cả dọc đường.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 03 -->
+        <div class="gallery-card" data-slot="3" data-images="./assets/images/memories/3.1.png,./assets/images/memories/3.2.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 2 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/3.1.png" alt="Những Đêm Call Chung Học Bài" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#03 &bull; Từng Giờ Khắc Êm Đềm</div>
+              <h3 class="gallery-card-title">Những Đêm Call Chung Học Bài</h3>
+              <p class="gallery-card-desc">Những đêm bật call cùng nhau học bài thâu đêm, cùng giải từng bài toán, động viên nhau qua màn hình điện thoại... Có em đồng hành, áp lực thi cử bỗng hóa ngọt ngào.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 04 -->
+        <div class="gallery-card" data-slot="4" data-images="./assets/images/memories/4.1.png,./assets/images/memories/4.2.png,./assets/images/memories/4.3.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 3 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/4.1.png" alt="Cùng Nhau Đi Học Mỗi Ngày" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#04 &bull; Con Đường Thân Quen</div>
+              <h3 class="gallery-card-title">Cùng Nhau Đi Học Mỗi Ngày</h3>
+              <p class="gallery-card-desc">Mỗi sớm mai đến lớp, con đường đi học quen thuộc trở nên rực rỡ và mong chờ hơn bao giờ hết vì ở đó luôn có hình bóng người anh thương.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 05 -->
+        <div class="gallery-card" data-slot="5" data-images="./assets/images/memories/5.1.png,./assets/images/memories/5.2.png,./assets/images/memories/5.3.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 3 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/5.1.png" alt="Những Buổi Hẹn hò năm cấp 3" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#05 &bull; Góc Phố Kỷ Niệm</div>
+              <h3 class="gallery-card-title">Những Buổi Hẹn hò năm cấp 3</h3>
+              <p class="gallery-card-desc">Những buổi chiều tan trường hẹn hò, cùng em rong ruổi khắp phố phường trên con xe 50 nhỏ bé của anh. Chiếc xe chậm rãi chở đầy ắp tiếng cười và những câu chuyện không bao giờ hết.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 06 -->
+        <div class="gallery-card" data-slot="6" data-images="./assets/images/memories/6.1.png,./assets/images/memories/6.2.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 2 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/6.1.png" alt="Chúng Mình Đi Chơi Ở Vincom" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#06 &bull; Những Ngày Vui Rộn Rã</div>
+              <h3 class="gallery-card-title">Chúng Mình Đi Chơi Ở Vincom</h3>
+              <p class="gallery-card-desc">Những buổi chiều cùng em dạo quanh Vincom, ngắm nghía đồ xinh, ăn những món em thích và lưu giữ những khoảnh khắc lí lắc, đáng yêu nhất của hai đứa.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 07 -->
+        <div class="gallery-card" data-slot="7" data-images="./assets/images/memories/7.1.png,./assets/images/memories/7.2.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 2 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/7.1.png" alt="Những Lần Đầu Tiên Đi Xem Phim Cùng Nhau" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#07 &bull; Khoảnh Khắc Ngại Ngùng</div>
+              <h3 class="gallery-card-title">Những Lần Đầu Tiên Đi Xem Phim Cùng Nhau</h3>
+              <p class="gallery-card-desc">Lần đầu tiên hai đứa cùng ngồi cạnh nhau trong rạp phim, ánh đèn mờ ảo, ngập ngừng chẳng dám nắm tay nhưng trong lòng thì ngập tràn bối rối và hạnh phúc.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 08 -->
+        <div class="gallery-card" data-slot="8" data-images="./assets/images/memories/8.png">
+          <div class="gallery-img-wrapper">
+            <img class="gallery-img" src="./assets/images/memories/8.png" alt="Lần Đầu Tiên Đón Sinh Nhật Anh Cùng Nhau" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#08 &bull; Sinh Nhật Đầu Tiên Bên Em</div>
+              <h3 class="gallery-card-title">Lần Đầu Tiên Đón Sinh Nhật Anh Cùng Nhau</h3>
+              <p class="gallery-card-desc">Sinh nhật đầu tiên của anh kể từ khi hai đứa yêu nhau. Cảm giác hạnh phúc và ấm áp ngập tràn khi nhận được những lời chúc ngọt ngào và sự quan tâm dịu dàng từ người con gái anh yêu.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 09 -->
+        <div class="gallery-card" data-slot="9" data-images="./assets/images/memories/9.png">
+          <div class="gallery-img-wrapper">
+            <img class="gallery-img" src="./assets/images/memories/9.png" alt="Lần Thứ 2 Đón Sinh Nhật Của Em" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#09 &bull; Sinh Nhật Tuổi Mới Bên Nhau</div>
+              <h3 class="gallery-card-title">Lần Thứ 2 Đón Sinh Nhật Của Em</h3>
+              <p class="gallery-card-desc">Năm thứ hai được cùng em thổi nến sinh nhật. Cảm ơn em vì đã lớn lên thật dịu dàng và tiếp tục chọn anh làm người đồng hành trong tuổi mới.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 10 -->
+        <div class="gallery-card" data-slot="10" data-images="./assets/images/memories/10.1.png,./assets/images/memories/10.2.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 2 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/10.1.png" alt="Giải Bóng Chuyền Lớp 12" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#10 &bull; Nhiệt Huyết Tuổi Trẻ</div>
+              <h3 class="gallery-card-title">Giải Bóng Chuyền Lớp 12</h3>
+              <p class="gallery-card-desc">Những trận bóng chuyền nảy lửa năm lớp 12, có tiếng reo hò của bạn bè và ánh mắt cổ vũ dịu dàng của em bên lề sân — nguồn động lực lớn nhất của anh.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 11 -->
+        <div class="gallery-card" data-slot="11" data-images="./assets/images/memories/11.1.png,./assets/images/memories/11.2.png,./assets/images/memories/11.3.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 3 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/11.1.png" alt="Chúng Mình Những Ngày Cuối Cấp 3" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#11 &bull; Tạm Biệt Mái Trường</div>
+              <h3 class="gallery-card-title">Chúng Mình Những Ngày Cuối Cấp 3</h3>
+              <p class="gallery-card-desc">Những ngày cuối cấp 3 đầy lưu luyến, tiếng ve gọi hè, trang lưu bút và những cái ôm tạm biệt. Tình yêu học trò khép lại để mở ra một trang mới trưởng thành hơn bên em.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 12 -->
+        <div class="gallery-card" data-slot="12" data-images="./assets/images/memories/12.png">
+          <div class="gallery-img-wrapper">
+            <img class="gallery-img" src="./assets/images/memories/12.png" alt="Lần Đầu Tiên Đi Du Lịch Cùng Nhau" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#12 &bull; Chuyến Đi Đầu Tiên</div>
+              <h3 class="gallery-card-title">Lần Đầu Tiên Đi Du Lịch Cùng Nhau</h3>
+              <p class="gallery-card-desc">Chuyến du lịch xa đầu tiên chỉ có hai đứa mình, cùng khám phá vùng đất mới, cùng dậy sớm đón bình minh và cùng tạo nên những kỷ niệm vô giá.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 13 -->
+        <div class="gallery-card" data-slot="13" data-images="./assets/images/memories/13.1.png,./assets/images/memories/13.2.png,./assets/images/memories/13.3.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 3 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/13.1.png" alt="Lần Thứ 3 Đón Sinh Nhật Em Cùng Nhau" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#13 &bull; Thêm Một Tuổi Mới Yêu Thương</div>
+              <h3 class="gallery-card-title">Lần Thứ 3 Đón Sinh Nhật Em Cùng Nhau</h3>
+              <p class="gallery-card-desc">Sinh nhật lần thứ 3 bên em, hai đứa đã cùng nhau trải qua bao đổi thay khi bước vào đại học. Nhưng tình cảm dành cho em thì chỉ ngày một đong đầy hơn.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 14 -->
+        <div class="gallery-card" data-slot="14" data-images="./assets/images/memories/14.1.png,./assets/images/memories/14.2.png,./assets/images/memories/14.3.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 3 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/14.1.png" alt="Kỷ Niệm 1000 Ngày Yêu — Dịp Tết 2024" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#14 &bull; Tết 2024 · 1000 Ngày Yêu</div>
+              <h3 class="gallery-card-title">Kỷ Niệm 1000 Ngày Yêu — Dịp Tết 2024</h3>
+              <p class="gallery-card-desc">Cột mốc 1000 ngày yêu nhau thật ý nghĩa khi rơi vào đúng dịp Tết Nguyên Đán 2024. Giữa không khí xuân rộn ràng, anh có em là món quà đầu năm trọn vẹn nhất.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 15 -->
+        <div class="gallery-card" data-slot="15" data-images="./assets/images/memories/15.png">
+          <div class="gallery-img-wrapper">
+            <img class="gallery-img" src="./assets/images/memories/15.png" alt="Lần Thứ 2 Đón Sinh Nhật Anh Cùng Nhau" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#15 &bull; Tuổi Mới Thêm Gắn Kết</div>
+              <h3 class="gallery-card-title">Lần Thứ 2 Đón Sinh Nhật Anh Cùng Nhau</h3>
+              <p class="gallery-card-desc">Năm thứ hai đón sinh nhật cùng em. Tình cảm của hai đứa ngày càng gắn kết, có em ở bên cạnh biến ngày sinh nhật của anh thành ngày ngập tràn niềm vui và bình yên.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 16 -->
+        <div class="gallery-card" data-slot="16" data-images="./assets/images/memories/16.1.png,./assets/images/memories/16.2.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 2 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/16.1.png" alt="Cùng Nhau Đi Hội An" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#16 &bull; Phố Cổ Lung Linh Ánh Đèn</div>
+              <h3 class="gallery-card-title">Cùng Nhau Đi Hội An</h3>
+              <p class="gallery-card-desc">Cùng em dạo bước dưới những con hẻm vàng đặc trưng của phố cổ, ngắm lồng đèn rực rỡ bên dòng sông Hoài thơ mộng và thưởng thức những món ăn thân thương.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 17 -->
+        <div class="gallery-card" data-slot="17" data-images="./assets/images/memories/17.1.png,./assets/images/memories/17.2.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 2 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/17.1.png" alt="Đi Du Lịch Huế Cùng Nhau" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#17 &bull; Cố Đô Mộng Mơ</div>
+              <h3 class="gallery-card-title">Đi Du Lịch Huế Cùng Nhau</h3>
+              <p class="gallery-card-desc">Hành trình về với mảnh đất cố đô trầm mặc, dạo quanh Đại Nội, ngắm sông Hương êm đềm và cùng em tận hưởng sự bình yên rất đỗi ngọt ngào.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 18 -->
+        <div class="gallery-card" data-slot="18" data-images="./assets/images/memories/18.png">
+          <div class="gallery-img-wrapper">
+            <img class="gallery-img" src="./assets/images/memories/18.png" alt="Về Quê Đi Biển Picnic Với Thầy Trung" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#18 &bull; Chuyến Đi Đầy Ắp Tiếng Cười</div>
+              <h3 class="gallery-card-title">Về Quê Đi Biển Picnic Với Thầy Trung</h3>
+              <p class="gallery-card-desc">Chuyến về quê picnic bên bờ biển lộng gió cùng thầy Trung và mọi người. Từng làn gió biển mát rượi, những bữa ăn ấm cúng và bao kỷ niệm rạng rỡ tiếng cười.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 19 -->
+        <div class="gallery-card" data-slot="19" data-images="./assets/images/memories/19.1.png,./assets/images/memories/19.2.png,./assets/images/memories/19.3.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 3 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/19.1.png" alt="Mình Đi Chơi Khắp Đà Nẵng" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#19 &bull; Thành Phố Tình Yêu</div>
+              <h3 class="gallery-card-title">Mình Đi Chơi Khắp Đà Nẵng</h3>
+              <p class="gallery-card-desc">Rong ruổi khắp các cung đường Đà Nẵng, qua những cây cầu rực rỡ về đêm, lên bán đảo Sơn Trà ngắm biển trời mênh mông cùng bà chã hơm iuu.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 20 -->
+        <div class="gallery-card" data-slot="20" data-images="./assets/images/memories/20.1.png,./assets/images/memories/20.2.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 2 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/20.1.png" alt="Về Nhà Bé Chơi" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#20 &bull; Góc Nhỏ Thân Thương</div>
+              <h3 class="gallery-card-title">Về Nhà Bé Chơi</h3>
+              <p class="gallery-card-desc">Những lần về nhà bé chơi, được ở bên em trong không gian thân thuộc nhất, giản dị, ấm áp và luôn tràn ngập cảm giác bình yên của một gia đình.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 21 -->
+        <div class="gallery-card" data-slot="21" data-images="./assets/images/memories/21.png">
+          <div class="gallery-img-wrapper">
+            <img class="gallery-img" src="./assets/images/memories/21.png" alt="Tết 2025 Với Bộ Ảnh Để Đời" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#21 &bull; Tết 2025 Rực Rỡ</div>
+              <h3 class="gallery-card-title">Tết 2025 Với Bộ Ảnh Để Đời</h3>
+              <p class="gallery-card-desc">Mùa Tết 2025 rạng rỡ với bộ ảnh kỷ niệm cực phẩm của hai đứa. Em mặc đồ Tết xinh đẹp như một nàng thơ, lưu lại những khung hình đẹp nhất thanh xuân.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 22 -->
+        <div class="gallery-card" data-slot="22" data-images="./assets/images/memories/22.png">
+          <div class="gallery-img-wrapper">
+            <img class="gallery-img" src="./assets/images/memories/22.png" alt="Lần Thứ 3 Đón Sinh Nhật Anh Cùng Nhau" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#22 &bull; Hạnh Phúc Giản Đơn</div>
+              <h3 class="gallery-card-title">Lần Thứ 3 Đón Sinh Nhật Anh Cùng Nhau</h3>
+              <p class="gallery-card-desc">Mùa sinh nhật thứ 3 bên em, hai đứa đã cùng nhau đi qua bao kỷ niệm đẹp. Cảm ơn em vì đã luôn chu đáo, dành cho anh sự dịu dàng và thương yêu trọn vẹn nhất.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 23 -->
+        <div class="gallery-card" data-slot="23" data-images="./assets/images/memories/23.png">
+          <div class="gallery-img-wrapper">
+            <img class="gallery-img" src="./assets/images/memories/23.png" alt="Kỳ Nghỉ Lễ 30/4 - 1/5 Bên Nhau" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#23 &bull; 30 Tháng 4 & 01 Tháng 5</div>
+              <h3 class="gallery-card-title">Kỳ Nghỉ Lễ 30/4 - 1/5 Bên Nhau</h3>
+              <p class="gallery-card-desc">Những ngày nghỉ lễ thảnh thơi dành trọn thời gian cho nhau, tạm gác lại những bộn bề học tập và công việc để cùng nhau tận hưởng trọn vẹn từng khoảnh khắc.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 24 -->
+        <div class="gallery-card" data-slot="24" data-images="./assets/images/memories/24.1.png,./assets/images/memories/24.2.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 2 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/24.1.png" alt="Tiếp Tục Đi Hội An Như Cơm Bữa" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#24 &bull; Góc Phố Thân Quen</div>
+              <h3 class="gallery-card-title">Tiếp Tục Đi Hội An Như Cơm Bữa</h3>
+              <p class="gallery-card-desc">Hội An đi hoài không biết chán, đi nhiều đến mức quen từng góc quán, từng con ngõ nhỏ. Cứ rảnh rỗi là hai đứa lại đèo nhau về phố cổ hít hà không khí bình yên.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 25 -->
+        <div class="gallery-card" data-slot="25" data-images="./assets/images/memories/25.1.png,./assets/images/memories/25.2.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 2 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/25.1.png" alt="Lần Thứ 4 Đón Sinh Nhật Bé Cùng Nhau" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#25 &bull; Sinh Nhật Lần Thứ 4</div>
+              <h3 class="gallery-card-title">Lần Thứ 4 Đón Sinh Nhật Bé Cùng Nhau</h3>
+              <p class="gallery-card-desc">Bốn mùa sinh nhật trôi qua, anh vẫn may mắn là người đầu tiên gửi lời chúc mừng đến em. Chúc em tuổi mới luôn là cô gái hạnh phúc nhất trên đời!</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 26 -->
+        <div class="gallery-card" data-slot="26" data-images="./assets/images/memories/26.png">
+          <div class="gallery-img-wrapper">
+            <img class="gallery-img" src="./assets/images/memories/26.png" alt="Tết 2026 Cùng Nhau" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#26 &bull; Mùa Xuân Gắn Kết</div>
+              <h3 class="gallery-card-title">Tết 2026 Cùng Nhau</h3>
+              <p class="gallery-card-desc">Lại thêm một mùa Tết trọn vẹn nữa hai đứa đồng hành bên nhau. Tình yêu ngày càng chín muồi, sâu đậm và gắn kết hơn qua từng năm tháng.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 27 -->
+        <div class="gallery-card" data-slot="27" data-images="./assets/images/memories/27.1.png,./assets/images/memories/27.2.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 2 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/27.1.png" alt="Cùng Nhau Đón Sinh Nhật Của Anh Lần Thứ 4" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#27 &bull; Sinh Nhật Lần Thứ 4 Bên Em</div>
+              <h3 class="gallery-card-title">Cùng Nhau Đón Sinh Nhật Của Anh Lần Thứ 4</h3>
+              <p class="gallery-card-desc">Mỗi mùa sinh nhật có em bên cạnh, anh nhận ra món quà lớn nhất và quý giá nhất cuộc đời mình vẫn luôn là nụ cười hạnh phúc của em.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 28 -->
+        <div class="gallery-card" data-slot="28" data-images="./assets/images/memories/28.1.png,./assets/images/memories/28.2.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 2 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/28.1.png" alt="Đi Lý Sơn Cùng Nhau" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#28 &bull; Biển Xanh & Nắng Vàng Lý Sơn</div>
+              <h3 class="gallery-card-title">Đi Lý Sơn Cùng Nhau</h3>
+              <p class="gallery-card-desc">Hành trình đến hòn đảo Lý Sơn xinh đẹp, đắm mình trong làn nước biển trong vắt như ngọc, ngắm hoàng hôn trên Cổng Tò Vò và lưu giữ những thước phim tuyệt mỹ.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 29 -->
+        <div class="gallery-card" data-slot="29" data-images="./assets/images/memories/29.1.png,./assets/images/memories/29.2.png,./assets/images/memories/29.3.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 3 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/29.1.png" alt="Kỷ Niệm Cột Mốc 5 Năm Bên Nhau" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#29 &bull; Hành Trình Nửa Thập Kỷ</div>
+              <h3 class="gallery-card-title">Kỷ Niệm Cột Mốc 5 Năm Bên Nhau</h3>
+              <p class="gallery-card-desc">Nửa thập kỷ yêu thương — 5 năm với biết bao thăng trầm, thử thách nhưng hai đứa vẫn luôn nắm chặt tay nhau để cùng trưởng thành và yêu nhau nhiều hơn.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 30 -->
+        <div class="gallery-card" data-slot="30" data-images="./assets/images/memories/30.1.png,./assets/images/memories/30.2.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 2 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/30.1.png" alt="Đi Suối Chụp Choẹt Đồ Xinh" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#30 &bull; Hòa Mình Cùng Thiên Nhiên</div>
+              <h3 class="gallery-card-title">Đi Suối Chụp Choẹt Đồ Xinh</h3>
+              <p class="gallery-card-desc">Chuyến đi suối hòa mình vào thiên nhiên trong lành, cùng em lội nước mát rượi, cười đùa rộn rã và có cả một bộ sưu tập ảnh 'chụp choẹt' siêu đáng yêu.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kỷ niệm 31 -->
+        <div class="gallery-card" data-slot="31" data-images="./assets/images/memories/31.1.png,./assets/images/memories/31.2.png,./assets/images/memories/31.3.png">
+          <div class="gallery-img-wrapper">
+          <span class="gallery-photo-badge"><i class="fas fa-images"></i> 3 ảnh</span>
+            <img class="gallery-img" src="./assets/images/memories/31.1.png" alt="Mới Đây Chụp Photobooth Nè" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-card-date">#31 &bull; Khoảnh Khắc Gần Nhất</div>
+              <h3 class="gallery-card-title">Mới Đây Chụp Photobooth Nè</h3>
+              <p class="gallery-card-desc">Những khung hình photobooth ngộ nghĩnh, hài hước và đong đầy tình cảm vừa mới chụp gần đây. Tình yêu của chúng mình luôn tươi mới như ngày đầu tiên!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOVE JOURNEY TIMELINE SECTION -->
+    <section id="timeline-section" class="timeline-section">
+      <div class="section-header">
+        <span class="section-tag">HÀNH TRÌNH 2000 NGÀY</span>
+        <h2 class="section-title">Những cột mốc không thể nào quên</h2>
+        <p class="section-desc">Từng bước chân của hai đứa mình trên con đường thanh xuân</p>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item left">
+          <div class="timeline-node"><i class="fas fa-heart"></i></div>
+          <div class="timeline-card">
+            <div class="timeline-date">17.05.2021 · Ngày Bắt Đầu</div>
+            <h3 class="timeline-title">Lời tỏ tình & Cái gật đầu định mệnh</h3>
+            <p class="timeline-desc">Khoảnh khắc hai tâm hồn tìm thấy nhau giữa thế giới rộng lớn. Ngày chiếc đồng hồ tình yêu bắt đầu đếm nhịp đập đầu tiên.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="timeline-node"><i class="fas fa-seedling"></i></div>
+          <div class="timeline-card">
+            <div class="timeline-date">Mốc 500 & 1000 Ngày</div>
+            <h3 class="timeline-title">Học cách thấu hiểu & cùng nhau trưởng thành</h3>
+            <p class="timeline-desc">Đi qua những mùa mưa nắng, qua cả những bỡ ngỡ ban đầu để nhận ra: tình yêu là sự kiên nhẫn, sẻ chia và luôn đặt mình vào vị trí của nhau.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item left">
+          <div class="timeline-node"><i class="fas fa-gem"></i></div>
+          <div class="timeline-card">
+            <div class="timeline-date">Mốc 2000 Ngày · Hôm Nay</div>
+            <h3 class="timeline-title">2000 Ngày Yêu — Lời khẳng định của trái tim</h3>
+            <p class="timeline-desc">2000 ngày không còn là cảm xúc nhất thời, mà là sự gắn kết sâu sắc, là thói quen có nhau, là niềm tin vững chắc vào tương lai của hai đứa.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="timeline-node"><i class="fas fa-cake-candles"></i></div>
+          <div class="timeline-card">
+            <div class="timeline-date">Sinh Nhật Trâm iuu</div>
+            <h3 class="timeline-title">Mừng tuổi mới cô gái tuyệt vời nhất</h3>
+            <p class="timeline-desc">Ngày đặc biệt của người đặc biệt nhất. Chúc em tuổi mới luôn rực rỡ như hoa, an yên trong tâm hồn và luôn ngập tràn hạnh phúc bên anh.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item left">
+          <div class="timeline-node"><i class="fas fa-infinity"></i></div>
+          <div class="timeline-card">
+            <div class="timeline-date">Tương Lai Phía Trước</div>
+            <h3 class="timeline-title">3000, 5000 ngày... và mãi mãi</h3>
+            <p class="timeline-desc">2000 ngày chỉ là một cột mốc đẹp. Hành trình của chúng mình vẫn còn rất dài, và anh mong mỗi chặng đường sau này đều có em đồng hành.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE LOVE COUNTDOWN SECTION -->
+    <section id="countdown-section" class="countdown-section">
+      <div class="section-header">
+        <span class="section-tag">BỘ ĐẾM TÌNH YÊU REALTIME</span>
+        <h2 class="section-title">Hơn 2000 Ngày & Từng Giây Phút Bên Em</h2>
+        <p class="section-desc">Bắt đầu từ ngày 17.05.2021 — Cùng nhau đếm từng nhịp đập yêu thương</p>
+      </div>
+
+      <div class="countdown-badge">
+        <i class="fas fa-heart-circle-check"></i>
+        <span>Chúng mình đã yêu nhau được....</span>
+      </div>
+
+      <div class="countdown-box">
+        <div class="time-card">
+          <span id="count-days" class="time-number">2000</span>
+          <span class="time-label">Ngày</span>
+        </div>
+        <div class="time-card">
+          <span id="count-hours" class="time-number">00</span>
+          <span class="time-label">Giờ</span>
+        </div>
+        <div class="time-card">
+          <span id="count-mins" class="time-number">00</span>
+          <span class="time-label">Phút</span>
+        </div>
+        <div class="time-card">
+          <span id="count-secs" class="time-number">00</span>
+          <span class="time-label">Giây</span>
+        </div>
+      </div>
+      <p class="countdown-note">Mỗi giây trôi qua đều là minh chứng cho tình yêu bền chặt của chúng mình.</p>
+    </section>
+
+    <!-- ROMANTIC QUOTES CAROUSEL SECTION -->
+    <section id="quotes-section" class="quotes-section">
+      <div class="section-header">
+        <span class="section-tag">LỜI YÊU THƯƠNG TỪ TRÁI TIM</span>
+        <h2 class="section-title">Dành Riêng Cho Bà Chã Của Anh</h2>
+      </div>
+
+      <div class="quote-card">
+        <i class="fas fa-quote-left quote-icon"></i>
+        <div id="quote-text" class="quote-text"></div>
+        <button id="quote-next-btn" class="btn-romantic quote-next-btn">
+          Một lời khác dành cho em <i class="fas fa-sparkles"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- GRAND FINALE & FIREWORKS SECTION -->
+    <section id="ending-section" class="ending-section">
+      <div class="ending-card">
+        <h2 class="ending-title">Chúc Mừng Sinh Nhật Bà Chã Iuu & 2000 Ngày Yêu!</h2>
+        <p class="ending-text">Cảm ơn Em vì 2000 ngày qua đã chọn ở bên anh. Chúc cô gái của anh tuổi mới luôn bình an, rạng rỡ và hạnh phúc nhất thế gian!</p>
+        <div class="ending-actions">
+          <button id="finale-btn" class="btn-romantic">
+            Bắn pháo hoa chúc mừng <i class="fas fa-heart"></i>
+          </button>
+          <button id="share-entry-btn" class="btn-glass" type="button" aria-haspopup="dialog">
+            <i class="fas fa-share-nodes"></i> Chia sẻ món quà
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOX POPUP MODAL (Fixed Viewport Overlay) -->
+  <div id="lightbox-modal">
+    <div class="lightbox-content">
+      <button id="lightbox-close" class="lightbox-close" aria-label="Đóng hình ảnh"><i class="fas fa-times"></i></button>
+      <button id="lightbox-prev" class="lightbox-nav lightbox-prev" aria-label="Ảnh trước" style="display:none;"><i class="fas fa-chevron-left"></i></button>
+      <button id="lightbox-next" class="lightbox-nav lightbox-next" aria-label="Ảnh tiếp theo" style="display:none;"><i class="fas fa-chevron-right"></i></button>
+      <img id="lightbox-img" src="" alt="Zoomed view" class="lightbox-img">
+      <div class="lightbox-caption">
+        <h3 id="lightbox-title"></h3>
+        <p id="lightbox-desc"></p>
+        <div id="lightbox-counter" class="lightbox-counter" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHARE MODAL (opened from the floating dock) -->
+  <div id="share-modal" class="share-modal" role="dialog" aria-modal="true" aria-labelledby="share-modal-title" aria-hidden="true" data-lenis-prevent>
+    <div class="share-panel">
+      <button id="share-close-btn" class="share-close" type="button" aria-label="Đóng"><i class="fas fa-times"></i></button>
+
+      <header class="share-header">
+        <span class="share-eyebrow">Chia sẻ yêu thương</span>
+        <h3 id="share-modal-title" class="share-title">Gửi món quà này đến người bạn yêu thương</h3>
+        <p class="share-desc">Gửi liên kết trực tiếp qua Zalo, Messenger hoặc sao chép liên kết trang web.</p>
+      </header>
+
+      <div class="share-media">
+        <img class="share-card-img" src="./assets/qr-milove.png" alt="Mã QR Món Quà Yêu Thương" onerror="this.style.display='none'; if (this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+        <div class="share-card-placeholder" style="display: none;">
+          <i class="fas fa-gift"></i>
+          <span class="share-card-tag">MÓN QUÀ ĐẶC BIỆT</span>
+          <h4 class="share-card-title">Sinh Nhật Em & 2000 Ngày Yêu</h4>
+          <span class="share-card-sub">Dành riêng cho người con gái anh thương nhất ♥</span>
+        </div>
+      </div>
+
+      <div class="share-actions">
+        <button id="share-native-btn" class="share-action share-action-primary" type="button" hidden>
+          <span class="share-action-icon"><i class="fas fa-paper-plane"></i></span>
+          <span class="share-action-text">
+            <span class="share-action-label">Gửi qua ứng dụng</span>
+            <span class="share-action-sub">Zalo, Messenger, tin nhắn…</span>
+          </span>
+        </button>
+        <button id="share-copy-btn" class="share-action" type="button">
+          <span class="share-action-icon"><i class="fas fa-link"></i></span>
+          <span class="share-action-text">
+            <span class="share-action-label">Sao chép liên kết</span>
+            <span class="share-action-sub">ngimnee.github.io/milove</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Scripts (Strict Relative Paths) -->
+  <script src="./js/audio.js"></script>
+  <script src="./js/cursor.js"></script>
+  <script src="./js/ambient-loop.js"></script>
+  <script src="./js/galaxy.js"></script>
+  <script src="./js/hearts.js"></script>
+  <script src="./js/sakura.js"></script>
+  <script src="./js/meteor.js"></script>
+  <script src="./js/fireworks.js"></script>
+  <script src="./js/loading.js"></script>
+  <script src="./js/intro.js"></script>
+  <script src="./js/typing.js"></script>
+  <script src="./js/countdown.js"></script>
+
+  <!-- Image Encryption System (load before gallery & renderers).
+       encrypted-data.js holds the album & gallery photos and the letter. The special-day
+       photos are in encrypted-special-data.js, which ImageProvider downloads only on a special day. -->
+  <script src="./js/crypto.js"></script>
+  <script src="./js/image-decoder.js"></script>
+  <script src="./js/image-provider.js"></script>
+  <script src="./js/encrypted-data.js"></script>
+
+  <script src="./js/gallery.js"></script>
+  <script src="./js/timeline.js"></script>
+  <script src="./js/quotes.js"></script>
+  <script src="./js/scroll.js"></script>
+
+  <!-- Memory Book Modular Engines -->
+  <script src="./js/memory-book-storage.js"></script>
+  <script src="./js/memory-book-state.js"></script>
+  <script src="./js/memory-book-renderer.js"></script>
+  <script src="./js/memory-book-navigation.js"></script>
+  <script src="./js/memory-book-animation.js"></script>
+  <script src="./js/memory-book-entry.js"></script>
+  <script src="./js/memory-book-controller.js"></script>
+
+  <!-- Special Days (data first: it reads the love date from countdown.js) -->
+  <script src="./js/lunar-calendar.js"></script>
+  <script src="./js/special-events-data.js"></script>
+  <script src="./js/special-events-detector.js"></script>
+  <script src="./js/special-events-effects.js"></script>
+  <script src="./js/special-events-renderer.js"></script>
+  <script src="./js/special-events-heart.js"></script>
+  <script src="./js/special-events-animation.js"></script>
+  <script src="./js/special-events-controller.js"></script>
+
+  <script src="./js/share.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
